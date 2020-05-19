@@ -1,0 +1,73 @@
+#:import utils kivy.utils
+#:import listProp kivy.properties.ListProperty
+
+<FlatButton@ButtonBehavior+Label>:
+    font_size: 16
+
+<LoginScreen>:
+    id: main_win
+    orientation: "vertical"
+    spacing: 10
+    space_x: self.size[0]/3
+
+    canvas.before:
+        Color:
+            rgb: utils.get_color_from_hex('#f58823')
+        Rectangle:
+            size: self.size
+            pos: self.pos
+    GridLayout:
+    	rows:1
+    	size_hint: 1, .4
+    	pos_hint: {"top": 1, "left": 1}
+    	Image:
+    		source: "icons/homeimage.png"
+
+    FloatLayout:
+
+        Label:
+            id: info
+            text: ''
+            markup: True
+            pos_hint: {"top": .1, "right" :1}
+            size_hint_y: None
+            height: 20
+        
+        TextInput:
+            id: username_field
+            hint_text: "Username"
+            cursor_color: utils.get_color_from_hex('#D2691E')
+            write_tab: False
+            multiline: False
+            focus: True
+            size_hint: .8, .065
+            pos_hint: {"top": .7, "right" :.9}
+            on_text_validate: pwd_field.focus = True
+  
+        TextInput:
+            id: pwd_field
+            hint_text: "Password"
+            cursor_color: utils.get_color_from_hex('#D2691E')
+            write_tab: False
+            multiline: False
+            password: True
+            size_hint: .8, .065
+            pos_hint: {"top": .6, "right" :.9}
+            on_text_validate: app.validate_user()
+
+	    Label:
+	        id: sp
+	        size_hint_y: None
+	        height: 40
+
+	    Button:
+	        text: "Sign In"
+	        height: 40
+	        size_hint: .8, .065
+            pos_hint: {"top": .5, "right" :.9}
+	        background_color: (.06,.45,.45, 1)
+	        background_normal: ''
+	        on_release: app.validate_user()
+	  
+
+

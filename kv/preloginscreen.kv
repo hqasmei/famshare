@@ -1,0 +1,19 @@
+<PreLoginScreen>:
+    id: pre_win
+    orientation: "vertical"
+    spacing: 10
+    space_x: self.size[0]/3
+
+    canvas.before:
+        Color:
+            rgb: utils.get_color_from_hex('#f58823')
+        Rectangle:
+            size: self.size
+            pos: self.pos
+    GridLayout:
+        rows:1
+        size_hint: 1, .8
+        pos_hint: {"top": .9, "left": 1}
+        Image:
+            source: "icons/homeimage.png"
+

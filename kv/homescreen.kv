@@ -1,0 +1,31 @@
+#: import utils kivy.utils 
+
+<HomeScreen>:
+	canvas:
+		Color:
+			rgb: utils.get_color_from_hex("#cbe6ef")
+		Rectangle:
+			pos: self.pos
+			size: self.size
+   
+    GridLayout:
+        size_hint: 1, .1
+        pos_hint: {"top": 1, "left": 1}
+        id: header_grid
+        cols: 1
+	FloatLayout:
+        ScrollView:
+            pos_hint: {"top": .89, "left": 1}
+            size_hint: 1, .8
+            GridLayout:
+                # Banner grid
+                id: banner_grid
+                cols: 1
+                spacing: 10,10
+                size_hint_y: None
+                height: self.minimum_height
+                row_default_height: '65dp'
+                row_force_default: True
+   
+
+		
